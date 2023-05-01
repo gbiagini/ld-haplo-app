@@ -29,7 +29,10 @@
                 <thead class="thead-dark">
 
                     <tr>
-                        <th scope="col" style="width: 100%;">
+                        <th scope="col" style="width: 50%;">
+                            <h4> Population </h4>
+                        </th>
+                        <th scope="col" style="width: 50%;">
                             <h4> Locus and Positions Entered </h4>
                         </th>
                     </tr>
@@ -38,7 +41,8 @@
 
                 <tbody>
                     <tr>
-                        <td style="max-width: 100%; word-wrap: break-word;">{{ user_input }}</td>
+                        <td style="max-width: 50%; word-wrap: break-word;">{{ population }}</td>
+                        <td style="max-width: 50%; word-wrap: break-word;">{{ loc_pos }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -46,7 +50,7 @@
         <br>
         <div class="container" style="overflow-x: auto;">
 
-            <img src="data:image/png;base64,{{ heatmap }}" class="img-fluid">
+            <img src="data:image/png;base64,{{heatmap}}" class="image-fluid">
 
         </div>
         <br>
@@ -61,7 +65,7 @@
             <h5 class="container text-center font-italic"> For scientific and technical queries contact
                 pathologygragertlab@tulane.edu. </h5>
             <br>
-            <h4 class="container text-center font-italic"> Cite HLA Dictionary Serology Prediction Tool</h4>
+            <h4 class="container text-center font-italic"> Cite LD HaploMap Tool</h4>
             <p class="container text-center font-italic"> Manuscript under preparation </p>
             <br>
             <p class="container text-center font-weight-bold"> Prototype Tool for Research Use Only </p>

@@ -16,13 +16,14 @@ def ldhaplomap_out(request):
     positions = raw_pos.strip().split(',')
     
     encoded_file = create_graph(population,locus,positions)
+    unencoded_file = encoded_file.decode('utf-8')
     
     return render(
         request,
         "ld_haplo_out.html",
         {
             "population": population,
-            "user_input": request.GET["userinput2"],
-            "encoded_file": encoded_file
+            "loc_pos": request.GET["userinput1"],
+            "heatmap": unencoded_file
         },
     )
