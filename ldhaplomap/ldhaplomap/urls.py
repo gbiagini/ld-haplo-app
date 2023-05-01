@@ -16,7 +16,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+#from django.conf.urls import url
+from django.conf.urls import include
+from django.conf import settings
+from rest_framework import permissions
+from serolizer import views
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+
+schema_view = get_schema_view(
+    openapi.Info(
+        title="Web services interface information for Transplanttoolbox",
+        default_version='v1',
+        contact=openapi.Contact(email="lgragert@tulane.edu"),
+    ),
+    #url="https://www.transplanttoolbox.org/cpra_home/services",
+    public=True,
+    permission_classes=[permissions.AllowAny],
+)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('',views.ld_haplo_input,name='ld_haplo_home'),
+    path('serolizer_out/',views.ld_haplo_out,name='ld_haplo_out'),
 ]
