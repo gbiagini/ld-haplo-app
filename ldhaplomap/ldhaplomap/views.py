@@ -13,9 +13,20 @@ def ldhaplomap_out(request):
     population = request.GET["userinput2"]
     locus, raw_pos = request.GET["userinput1"].split(':')
     
-    positions = raw_pos.strip().split(',')
+    extended_pos = []
     
-    encoded_file = create_graph(population,locus,positions)
+    positions = raw_pos.strip().split(',')
+    positions = list(map(str,positions))
+    for x in positions:
+        if x.find('-') != -1:
+            start_stop = x.split('-')
+            extended_pos.extend(list(range(int(start_stop[0]),int(start_stop[1])+1)))
+        else:
+            extended_pos.append(x)
+    
+    extended_pos.sort(key=int)
+    
+    encoded_file = create_graph(population,locus,extended_pos)
     unencoded_file = encoded_file.decode('utf-8')
     
     return render(

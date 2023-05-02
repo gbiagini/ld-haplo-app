@@ -30,5 +30,5 @@ def create_graph(population,locus,positions):
     plot_file = BytesIO()
     plt.savefig(plot_file, format='png')
     encoded_file = base64.b64encode(plot_file.getvalue())
-
+    
     return encoded_file
